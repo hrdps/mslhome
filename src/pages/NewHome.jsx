@@ -275,6 +275,7 @@ const NewHome = () => {
         </VStack>
         <VStack w={'100%'} bgColor={'white'} py={'64px'} px={5}>
           <Image
+            zIndex={999}
             py={5}
             src='./assets/msl-25-logo-black.png'
             id='msl_logo_home'
@@ -305,12 +306,13 @@ const NewHome = () => {
         <Separator width={'100%'} mx={5} borderColor={'blackAlpha.300'} />
         <VStack w={'100%'} bgColor={'white'} py={'64px'}>
           <Heading
-            minH={'150px'}
+            minH={'120px'}
             px={5}
             id='scroll_text'
-            fontSize={28}
+            fontWeight={'bolder'}
+            fontSize={24}
             w={'100%'}
-            className='gothic'
+            className='comfortaa'
             color={'blackAlpha.800'}>
             Are you looking to <Span ref={textRef}></Span>
           </Heading>
