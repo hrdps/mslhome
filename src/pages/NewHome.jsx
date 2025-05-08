@@ -79,22 +79,6 @@ const NewHome = () => {
         margin: '24px 0px',
       });
 
-    const tl3 = gsap.timeline({ repeat: -1, delay: 0.5 });
-    sent.forEach((item) => {
-      tl3.to(textRef.current, {
-        duration: 1.2,
-        scrambleText: {
-          text: item.text,
-          chars: '935абвгыодаокрвы',
-          rightToLeft: true,
-          speed: 1.2,
-        },
-      });
-
-      // Add a hold time after text settles
-      tl3.to({}, { duration: 4 });
-    });
-
     const partnerTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: '#partner_div',
@@ -145,7 +129,29 @@ const NewHome = () => {
     }
     setup();
     window.addEventListener('resize', setup);
-  }, []);
+
+    const tl3 = gsap.timeline({ repeat: -1, delay: 0.5 });
+    sent.forEach((item) => {
+      tl3.add(() => {
+        textRef.current.textContent = ''; // Reset manually
+      });
+      tl3.to(textRef.current, {
+        duration: 1.2,
+        scrambleText: {
+          text: item.text,
+          chars: 'abcdefghijklmnopqrstuvwxyz0123456789',
+          rightToLeft: true,
+          speed: 1.2,
+        },
+      });
+
+      // Add a hold time after text settles
+      tl3.to({}, { duration: 4 });
+    });
+    return () => {
+      tl3.kill(); // ✅ Cleanup to prevent memory leaks
+    };
+  }, [sent]);
 
   return (
     <VStack w={'100vw'} gap={0}>
@@ -297,7 +303,7 @@ const NewHome = () => {
               w={'100%'}
               color={'blackAlpha.800'}
               className='gothic'
-              fontSize={30}>
+              fontSize={24}>
               Contact Us
             </Heading>
             <Spacer />
@@ -442,7 +448,7 @@ const NewHome = () => {
               color={'blackAlpha.800'}
               className='gothic'
               fontWeight={'900'}
-              fontSize={28}
+              fontSize={24}
               w={'70%'}
               lineHeight={'1.3'}>
               Integrated Communication
@@ -518,7 +524,7 @@ const NewHome = () => {
               color={'blackAlpha.800'}
               className='gothic'
               fontWeight={'900'}
-              fontSize={28}
+              fontSize={24}
               w={'70%'}
               lineHeight={'1.3'}>
               Partnering with
