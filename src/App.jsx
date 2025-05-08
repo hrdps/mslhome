@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import FourZeroFour from './pages/FourZeroFour';
 import CardStack from './pages/CardStack';
 import NewHome from './pages/NewHome';
+import NewNewHome from './pages/NewNewHome';
 
 function App() {
   return (
@@ -24,8 +25,9 @@ function App() {
           <Route path='/people' element={<People />} />
           <Route path='/work' element={<Work />} />
           <Route path='/network' element={<Network />} />
-          <Route path='/card' element={<CardStack />} />
-          <Route path='/newhome' element={<Home />} /> */}
+          <Route path='/card' element={<CardStack />} />*/}
+          <Route path='/newhome' element={<Home />} />
+          <Route path='/nhome' element={<NewNewHome />} />
           <Route path='*' element={<FourZeroFour />} />
         </Routes>
         <Footer />
