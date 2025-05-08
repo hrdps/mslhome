@@ -79,6 +79,22 @@ const NewHome = () => {
         margin: '24px 0px',
       });
 
+    const tl3 = gsap.timeline({ repeat: -1, delay: 0.5 });
+    sent.forEach((item) => {
+      tl3.to(textRef.current, {
+        duration: 1.2,
+        scrambleText: {
+          text: item.text,
+          chars: '935абвгыодаокрвы',
+          rightToLeft: true,
+          speed: 1.2,
+        },
+      });
+
+      // Add a hold time after text settles
+      tl3.to({}, { duration: 4 });
+    });
+
     const partnerTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: '#partner_div',
@@ -104,21 +120,6 @@ const NewHome = () => {
       .to(partner4.current, {
         transform: 'translate(0%,0%)',
       });
-  });
-  const tl3 = gsap.timeline({ repeat: -1, delay: 0.5 });
-  sent.forEach((item) => {
-    tl3.to(textRef.current, {
-      duration: 1.2,
-      scrambleText: {
-        text: item.text,
-        chars: '935абвгыодаокрвы',
-        rightToLeft: true,
-        speed: 1.2,
-      },
-    });
-
-    // Add a hold time after text settles
-    tl3.to({}, { duration: 4 });
   });
 
   useEffect(() => {
