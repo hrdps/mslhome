@@ -105,10 +105,23 @@ const NewHome = () => {
         transform: 'translate(0%,0%)',
       });
   });
+  const tl3 = gsap.timeline({ repeat: -1, delay: 0.5 });
+  sent.forEach((item) => {
+    tl3.to(textRef.current, {
+      duration: 1.2,
+      scrambleText: {
+        text: item.text,
+        chars: '935абвгыодаокрвы',
+        rightToLeft: true,
+        speed: 1.2,
+      },
+    });
+
+    // Add a hold time after text settles
+    tl3.to({}, { duration: 4 });
+  });
 
   useEffect(() => {
-    console.log(window.innerWidth);
-
     if (window.innerWidth < 431) {
       setWindowSize(`${window.innerWidth}px`);
     }
@@ -131,58 +144,6 @@ const NewHome = () => {
     }
     setup();
     window.addEventListener('resize', setup);
-
-    const tl = gsap.timeline({ repeat: -1 });
-
-    // sent.forEach((tex, index) => {
-    //   gsap.to(textRef, {
-    //     duration: 5,
-    //     delay: 1.5,
-    //     scrambleText: {
-    //       text: tex.text,
-    //       rightToLeft: true,
-    //       chars: 'lowercase',
-    //     },
-    //   });
-
-    //   //   tl.to([textRef.current, textRef2.current], {
-    //   //     opacity: 0,
-    //   //     duration: 0.1,
-    //   //     onComplete: () => {
-    //   //       textRef.current.textContent = tex.text;
-    //   //       document.getElementById('scroll_text_image').src = tex.src;
-    //   //     },
-    //   //   })
-    //   //     .to([textRef.current, textRef2.current], { x: 0, opacity: 0 })
-    //   //     .to([textRef.current, textRef2.current], {
-    //   //       opacity: 1,
-    //   //       duration: 0.2,
-    //   //       delay: 0.2, // visible duration
-    //   //     })
-    //   //     .to({}, { duration: 5 })
-    //   //     .to([textRef.current, textRef2.current], {
-    //   //       x: -150,
-    //   //       opacity: 0,
-    //   //       duration: 0.3,
-    //   //     });
-    // });
-
-    const tl3 = gsap.timeline({ repeat: -1, delay: 0.5 });
-
-    sent.forEach((item) => {
-      tl3.to(textRef.current, {
-        duration: 1.2,
-        scrambleText: {
-          text: item.text,
-          chars: '935абвгыодаокрвы',
-          rightToLeft: true,
-          speed: 1.2,
-        },
-      });
-
-      // Add a hold time after text settles
-      tl3.to({}, { duration: 4 });
-    });
   }, []);
 
   return (
@@ -212,15 +173,21 @@ const NewHome = () => {
               color={'blackAlpha.800'}
               opacity={0}
               className='gothic h1 text'
-              fontSize={38}
-              lineHeight={'1.2'}
-              textTransform={'uppercase'}
+              fontSize={40}
+              lineHeight={'1.3'}
               fontWeight={'900'}>
-              The <Span color={'#FF8C5F'}>solution</Span> often turns out more{' '}
-              <Span color={'#082992'} fontSize={38}>
+              The{' '}
+              <Span color={'#FF8C5F'} fontSize={40}>
+                solution
+              </Span>{' '}
+              often turns out more{' '}
+              <Span color={'#082992'} fontSize={40}>
                 beautiful
               </Span>{' '}
-              than the <Span color={'#6692FF'}>puzzle</Span>.
+              than the{' '}
+              <Span color={'#6692FF'} fontSize={40}>
+                puzzle.
+              </Span>
             </Heading>
           </VStack>
           <HStack
@@ -304,24 +271,26 @@ const NewHome = () => {
           </Heading>
         </VStack>
         <Separator width={'100%'} mx={5} borderColor={'blackAlpha.300'} />
-        <VStack w={'100%'} bgColor={'white'} py={'64px'}>
+        <VStack w={'100%'} bgColor={'white'} py={'64px'} h={'auto'}>
           <Heading
-            minH={'120px'}
+            minH={'150px'}
             px={5}
             id='scroll_text'
             fontWeight={'bolder'}
-            fontSize={24}
+            fontSize={28}
             w={'100%'}
-            className='comfortaa'
+            className='gothic'
             color={'blackAlpha.800'}>
             Are you looking to <Span ref={textRef}></Span>
           </Heading>
-          <Image
-            height={'auto'}
-            ref={textRef2}
-            w={'100%'}
-            src='./assets/scroll-4.jpg'
-          />
+          <VStack w={'100%'} px={5}>
+            <Image
+              borderRadius={10}
+              ref={textRef2}
+              w={'100%'}
+              src='./assets/scroll-4.jpg'
+            />
+          </VStack>
           <HStack w={'100%'} bgColor={'white'} px={5} pt={10}>
             <Heading
               w={'100%'}
@@ -472,7 +441,7 @@ const NewHome = () => {
               color={'blackAlpha.800'}
               className='gothic'
               fontWeight={'900'}
-              fontSize={24}
+              fontSize={28}
               w={'70%'}
               lineHeight={'1.3'}>
               Integrated Communication
@@ -542,14 +511,13 @@ const NewHome = () => {
           </VStack>
         </VStack>
         <VStack w={'100%'} bgColor={'white'} py={'16px'}>
-          <HStack w={'100%'} px={5}>
+          <HStack w={'100%'} px={5} pb={5}>
             <Heading
-              pb={5}
               textAlign={'start'}
               color={'blackAlpha.800'}
               className='gothic'
               fontWeight={'900'}
-              fontSize={24}
+              fontSize={28}
               w={'70%'}
               lineHeight={'1.3'}>
               Partnering with
