@@ -119,7 +119,7 @@ const NewNewHome = () => {
     };
   }, [sent]);
   return (
-    <VStack w={windowSize} py={4} pt={'80px'} bgColor={'black'} px={4} gap={4}>
+    <VStack w={'100vw'} py={4} pt={'80px'} bgColor={'black'} px={4} gap={4}>
       <VStack
         border={'1px solid rgb(47, 47, 47)'}
         w={'100%'}
