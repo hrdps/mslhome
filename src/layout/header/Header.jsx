@@ -110,7 +110,7 @@ const Header = () => {
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: 'smooth', duration: 1 });
                 setTimeout(() => {
-                  navigate('/nhome');
+                  navigate('nhome');
                 }, 500); // wait for smooth scroll (adjust timing if needed)
               }}
               fontSize={['18px']}
@@ -149,7 +149,27 @@ const Header = () => {
           </HStack>
         ) : (
           <></>
-        )}
+        )}{' '}
+        <Text
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth', duration: 1 });
+            setTimeout(() => {
+              navigate('/nhome');
+            }, 500); // wait for smooth scroll (adjust timing if needed)
+          }}
+          fontSize={['18px']}
+          display={'flex'}
+          justifyContent={'center'}
+          alignItems={'center'}
+          h={'63px'}
+          cursor={'pointer'}
+          _hover={{
+            borderBottom: '1px solid white',
+            transition: '0.5s',
+          }}
+          transition={'0.2s'}>
+          Home V1
+        </Text>
         <VStack w={'50px'} id='menu_div'>
           <Image
             onClick={() => {
