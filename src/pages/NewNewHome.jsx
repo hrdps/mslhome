@@ -83,9 +83,16 @@ const NewNewHome = () => {
   });
 
   useEffect(() => {
-    if (window.innerWidth < 431) {
-      setWindowSize(`${window.innerWidth}px`);
-    }
+    const handleResize = () => {
+      if (window.innerWidth < 431) {
+        console.log('resized');
+        setWindowSize(`${window.innerWidth}px`);
+      }
+    };
+    // Run once on mount
+    handleResize();
+    // Listen to resize events
+    window.addEventListener('resize', handleResize);
     const tl3 = gsap.timeline({ repeat: -1, delay: 0.5 });
     sent.forEach((item) => {
       tl3.add(() => {
