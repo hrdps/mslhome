@@ -125,7 +125,7 @@ body {
   height: 25px;
   width: 50px;
   border-radius: 0px 0px 10px 0px;
-  box-shadow: 0 -25px 0 0 #ffffff;
+  box-shadow: 25px 0px 0 0 #ffffff;
   transform: scale(-1, -1);
 }
 
