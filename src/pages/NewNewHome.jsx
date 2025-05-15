@@ -119,7 +119,7 @@ const NewNewHome = () => {
     };
   }, [sent]);
   return (
-    <VStack w={'100vw'} py={4} pt={'80px'} bgColor={'black'} px={4} gap={4}>
+    <VStack w={'100vw'} py={4} pt={'80px'} bgColor={'white'} px={4} gap={4}>
       <VStack
         border={'1px solid rgb(47, 47, 47)'}
         w={'100%'}
@@ -191,7 +191,7 @@ const NewNewHome = () => {
         bgSize={'cover'}
         bgPos={'center right'}>
         <VStack
-          bgColor={'black'}
+          bgColor={'white'}
           w={'135px'}
           h={'46px'}
           display={'flex'}
@@ -203,7 +203,11 @@ const NewNewHome = () => {
           left={0}
           zIndex={99}
           borderRadius={'10px 0px 10px 0px'}>
-          <Image zIndex={100} src={'./assets/msl-25-logo.png'} w={'130px'} />
+          <Image
+            zIndex={100}
+            src={'./assets/msl-25-logo-black.png'}
+            w={'130px'}
+          />
         </VStack>
         <VStack w={'100%'} px={4}>
           <Heading
@@ -239,6 +243,87 @@ const NewNewHome = () => {
             <RiArrowRightUpLine color='white' size={30} />
           </HStack>
         </VStack>
+      </VStack>
+      <VStack
+        w={'100%'}
+        display={'flex'}
+        justifyContent={'flex-end'}
+        borderRadius={10}
+        bg={'url(./assets/earth.gif)'}
+        bgSize={'cover'}
+        bgPos={'center center'}
+        px={4}
+        py={4}
+        pt={8}>
+        <HStack gap={4} px={5} id='partner_div' zIndex={'100'}>
+          <Container
+            ref={partner1}
+            bgColor={'white'}
+            zIndex={9}
+            transform={'translate(50%,50%)'}
+            w={'45%'}
+            border={'1px solid #dbdbdb'}
+            borderRadius={10}
+            py={2}
+            shadow={'xs'}>
+            <Image src='./assets/msl-logo-gray.png' />
+          </Container>
+          <Container
+            ref={partner2}
+            bgColor={'white'}
+            zIndex={8}
+            transform={'translate(-65%,52%)'}
+            w={'45%'}
+            shadow={'xs'}
+            border={'1px solid #dbdbdb'}
+            borderRadius={10}
+            py={2}>
+            <Image src='./assets/pca-logo-white.png' />
+          </Container>
+        </HStack>
+        <HStack gap={5} px={5} py={3} pb={5} zIndex={'90'}>
+          <Container
+            ref={partner3}
+            transform={'translate(54%,-62%)'}
+            bgColor={'white'}
+            zIndex={7}
+            w={'45%'}
+            shadow={'xs'}
+            border={'1px solid #dbdbdb'}
+            borderRadius={10}
+            py={2}>
+            <Image src='./assets/2020-msl-logo-white.png' />
+          </Container>
+          <Container
+            ref={partner4}
+            transform={'translate(-66%,-66%)'}
+            bgColor={'white'}
+            zIndex={6}
+            w={'45%'}
+            shadow={'xs'}
+            border={'1px solid #dbdbdb'}
+            borderRadius={10}
+            py={2}>
+            <Image src='./assets/organics.png' />
+          </Container>
+        </HStack>
+        <HStack w={'100%'}>
+          <Heading
+            pb={2}
+            textAlign={'start'}
+            color={'orange.300'}
+            className='gothic'
+            fontWeight={'900'}
+            fontSize={24}
+            w={'70%'}
+            lineHeight={'1.3'}>
+            Integrated Communication
+            <br />
+            Partner
+          </Heading>
+          <Spacer />
+          <RiArrowRightUpLine color='#fdba74' size={30} />
+        </HStack>
       </VStack>
       <VStack
         border={'1px solid white'}
@@ -372,83 +457,27 @@ const NewNewHome = () => {
       </HStack>
       <VStack
         w={'100%'}
-        display={'flex'}
-        justifyContent={'flex-end'}
         borderRadius={10}
-        bg={'url(./assets/earth.gif)'}
-        bgSize={'cover'}
-        bgPos={'center center'}
         px={4}
         py={4}
-        pt={8}>
-        <HStack gap={4} px={5} id='partner_div' zIndex={'100'}>
-          <Container
-            ref={partner1}
-            bgColor={'white'}
-            zIndex={9}
-            transform={'translate(50%,50%)'}
-            w={'45%'}
-            border={'1px solid #dbdbdb'}
-            borderRadius={10}
-            py={2}
-            shadow={'xs'}>
-            <Image src='./assets/msl-logo-gray.png' />
-          </Container>
-          <Container
-            ref={partner2}
-            bgColor={'white'}
-            zIndex={8}
-            transform={'translate(-65%,52%)'}
-            w={'45%'}
-            shadow={'xs'}
-            border={'1px solid #dbdbdb'}
-            borderRadius={10}
-            py={2}>
-            <Image src='./assets/pca-logo-white.png' />
-          </Container>
-        </HStack>
-        <HStack gap={5} px={5} py={3} pb={5} zIndex={'90'}>
-          <Container
-            ref={partner3}
-            transform={'translate(54%,-62%)'}
-            bgColor={'white'}
-            zIndex={7}
-            w={'45%'}
-            shadow={'xs'}
-            border={'1px solid #dbdbdb'}
-            borderRadius={10}
-            py={2}>
-            <Image src='./assets/2020-msl-logo-white.png' />
-          </Container>
-          <Container
-            ref={partner4}
-            transform={'translate(-66%,-66%)'}
-            bgColor={'white'}
-            zIndex={6}
-            w={'45%'}
-            shadow={'xs'}
-            border={'1px solid #dbdbdb'}
-            borderRadius={10}
-            py={2}>
-            <Image src='./assets/organics.png' />
-          </Container>
-        </HStack>
+        bg={'url(./assets/cs_bg.gif)'}
+        bgSize={'cover'}
+        bgPos={'center center'}>
         <HStack w={'100%'}>
           <Heading
-            pb={2}
+            py={2}
             textAlign={'start'}
-            color={'orange.300'}
+            color={'orange.900'}
             className='gothic'
             fontWeight={'900'}
             fontSize={24}
             w={'70%'}
             lineHeight={'1.3'}>
-            Integrated Communication
+            Awards Showcase
             <br />
-            Partner
           </Heading>
           <Spacer />
-          <RiArrowRightUpLine color='#fdba74' size={30} />
+          <RiArrowRightUpLine color='#3b1106' size={30} />
         </HStack>
       </VStack>
       <VStack
