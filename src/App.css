@@ -116,16 +116,3 @@ body {
   box-shadow: 0 -25px 0 0 #ffffff; /* This is where the magic happens! */
 }
 
-.inverted-border-radius::after {
-  content: '';
-  position: absolute;
-  background-color: transparent;
-  top: 0px;
-  right: -50px;
-  height: 25px;
-  width: 50px;
-  border-radius: 0px 0px 10px 0px;
-  box-shadow: 25px 0px 0 0 #ffffff;
-  transform: scale(-1, -1);
-}
-
